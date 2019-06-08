@@ -86,6 +86,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     //if (foot_L.FootstepSound.Validate())
                     { 
                         // HINT: Play left footstep sound
+
                         particlePosition = foot_L.transform.position;
                         FootstepParticles(particlePosition);
                         AudioSource audioSource = GetComponent<AudioSource>();
