@@ -12,6 +12,11 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
     public AudioClip leftFootStep;
     public AudioClip rightFootStep;
 
+    public AudioClip BAS_imp_axe_dirt;
+    public AudioClip BAS_imp_dagger_dirt;
+    public AudioClip BAS_imp_sword_dirt;
+
+
     [Header("Object Links")]
     [SerializeField]
     private Animator playerAnimator;
@@ -86,7 +91,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     //if (foot_L.FootstepSound.Validate())
                     { 
                         // HINT: Play left footstep sound
-
+                        
                         particlePosition = foot_L.transform.position;
                         FootstepParticles(particlePosition);
                         AudioSource audioSource = GetComponent<AudioSource>();
@@ -145,6 +150,43 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
         // PLAY SOUND
         Weapon W = PlayerManager.Instance.equippedWeaponInfo;
         // HINT: PlayerManager.Instance.weaponSlot contains the selected weapon;
+        AudioSource audioSource = GetComponent<AudioSource>();
+        switch (PlayerManager.Instance.weaponSlot.GetComponentInChildren<Weapon>().weaponType)
+        {
+
+            case WeaponTypes.Dagger:
+                print("dagger");
+                audioSource.PlayOneShot(BAS_imp_dagger_dirt, 0.7F);
+                break;
+            case WeaponTypes.Sword:
+                print("sword");
+                audioSource.PlayOneShot(BAS_imp_sword_dirt, 0.7F);
+                break;
+            case WeaponTypes.Axe:
+                print("axe");
+                audioSource.PlayOneShot(BAS_imp_axe_dirt, 0.7F);
+                break;
+            /*case "Pick Axe":
+                print("Grog SMASH!");
+                break;
+            case "Hammer":
+                print("Ulg, glib, Pblblblblb");
+                break;
+            case "Evil Spit Plant":
+                print("Ulg, glib, Pblblblblb");
+                break;
+            case "Evil Crawler":
+                print("Ulg, glib, Pblblblblb");
+                break;
+            case "Evil Head":
+                print("Ulg, glib, Pblblblblb");
+                break;*/
+            default:
+                print("Incorrect intelligence level.");
+                break;
+        }
+
+       
         // HINT: This is a good place to play the weapon swing sounds
     }
 
