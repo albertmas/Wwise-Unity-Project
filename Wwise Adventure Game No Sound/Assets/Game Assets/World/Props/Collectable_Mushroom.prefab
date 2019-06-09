@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupParticles: {fileID: 0}
   DestroyOnPickup: 1
+  pickupSound: {fileID: 8300000, guid: 602d4e03649c1bf41a547184a1befc6f, type: 3}
   pickupAnimationOnInteract: 1
   hoverEffect: 0
   hoverScale: 0.1
@@ -144,14 +145,6 @@ MonoBehaviour:
   InteractionEnabled: 1
   interactionSound: 1
   trigger: {fileID: 0}
-  PickUpEvent:
-    valueGuid: a7fa0ef58c3dd5408123e8097b289ecf
-    ID: 0
-  PickupType:
-    valueGuid: 00000000000000000000000000000000
-    ID: 0
-    groupGuid: 00000000000000000000000000000000
-    groupID: 0
   OnBecameFocus:
     m_PersistentCalls:
       m_Calls: []

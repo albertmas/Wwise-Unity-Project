@@ -57,6 +57,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -73,6 +74,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -97,9 +99,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
 --- !u!114 &114000010076143662
@@ -4227,6 +4229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupParticles: {fileID: 0}
   DestroyOnPickup: 1
+  pickupSound: {fileID: 8300000, guid: 602d4e03649c1bf41a547184a1befc6f, type: 3}
   pickupAnimationOnInteract: 1
   hoverEffect: 0
   hoverScale: 0.1
@@ -4236,24 +4239,16 @@ MonoBehaviour:
   InteractionEnabled: 1
   interactionSound: 1
   trigger: {fileID: 0}
-  PickUpEvent:
-    valueGuid: a7fa0ef58c3dd5408123e8097b289ecf
-    ID: 0
-  PickupType:
-    valueGuid: 00000000000000000000000000000000
-    ID: 0
-    groupGuid: 00000000000000000000000000000000
-    groupID: 0
   OnBecameFocus:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnInteraction:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114000011827537688
 MonoBehaviour:
   m_ObjectHideFlags: 1
