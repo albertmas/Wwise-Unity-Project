@@ -14,6 +14,7 @@ public class RestartGameOnAnimationEvent : MonoBehaviour
     /// </summary>
     public void RestartGame()
     {
+        GameObject.Find("Music").GetComponent<PlayLoopAfterEntry>().fading = true;
         SceneManager.LoadScene("Title Screen");
     }
 }
