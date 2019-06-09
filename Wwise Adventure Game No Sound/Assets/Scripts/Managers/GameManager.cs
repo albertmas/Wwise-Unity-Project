@@ -32,6 +32,17 @@ public class GameManager : Singleton<GameManager>
 
     [Space(10f)]
 
+    [Header("Ambience Sound Zones")]
+    public AudioClip cave_amb;
+    public AudioClip desert_day_amb;
+    public AudioClip desert_night_amb;
+    public AudioClip dungeon_day_amb;
+    public AudioClip village_day_amb;
+    public AudioClip village_night_amb;
+    public AudioClip pineforest_night_amb;
+
+    [Space(10f)]
+
     [Header("Coins")]
     public CoinHandler coinHandler;
 
@@ -231,6 +242,38 @@ public class GameManager : Singleton<GameManager>
         {
             //CurrentZones[0].MusicState.SetValue();
             // HINT: Place to update game music according to region and daylight variables
+            AudioSource music = GameObject.Find("Abiance Sounds").GetComponent<AudioSource>();
+            if (CurrentZones[0].gameObject.name == "MusicRegion_Cave")
+            {
+                music.clip = cave_amb;
+                music.Play();
+            }
+            else if (CurrentZones[0].gameObject.name == "MusicRegion_Desert")
+            {
+                if (dayTime)
+                    music.clip = desert_day_amb;
+                else
+                    music.clip = desert_night_amb;
+                music.Play();
+            }
+            else if (CurrentZones[0].gameObject.name == "MusicRegion_Dungeon")
+            {
+                music.clip = dungeon_day_amb;
+                music.Play();
+            }
+            else if (CurrentZones[0].gameObject.name == "MusicRegion_Village")
+            {
+                if (dayTime)
+                    music.clip = village_day_amb;
+                else
+                    music.clip = village_night_amb;
+                music.Play();
+            }
+            else if (CurrentZones[0].gameObject.name == "MusicRegion_Pineforest")
+            {
+                music.clip = pineforest_night_amb;
+                music.Play();
+            }
         }
         else
         {
