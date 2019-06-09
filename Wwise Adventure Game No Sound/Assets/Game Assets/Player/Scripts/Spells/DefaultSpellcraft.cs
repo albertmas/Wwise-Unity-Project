@@ -36,7 +36,8 @@ public class DefaultSpellcraft : MonoBehaviour
     public List<SpellDesigns> Spellcraft;
 
     public int SpellSelect = 0;
-
+    public AudioClip chargeSound;
+    public AudioClip chargeFinishSound;
 
     [Header("WWISE")]
     public float SpellChargeLevel = 0f;
@@ -51,12 +52,18 @@ public class DefaultSpellcraft : MonoBehaviour
     private readonly int chargingMagicHash = Animator.StringToHash("ChargingMagic");
     #endregion
 
+
+
+
     public void EnableMagic()
     {
 
         SpellChargeLevel = 0f;
         // HINT: Spell starts charging, you may want to play the appropiate sound effect here
-
+       
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = chargeSound;
+        audioSource.Play();
         InputManager.OnUseDown += OnCharge;
         InputManager.OnUseUp += OffCharge;
     }
@@ -64,6 +71,9 @@ public class DefaultSpellcraft : MonoBehaviour
     public void DisableMagic()
     {
         // HINT: Spell stops charging, you may want to stop the charge effect here
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
+        audioSource.PlayOneShot(chargeFinishSound);
         Spellcraft[SpellSelect].Charge.OnCharge[0].Deactivate();
         InputManager.OnUseDown -= OnCharge;
         InputManager.OnUseUp -= OffCharge;
