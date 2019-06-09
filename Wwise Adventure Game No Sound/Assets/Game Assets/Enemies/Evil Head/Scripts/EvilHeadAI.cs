@@ -14,6 +14,9 @@ public class EvilHeadAI : Creature
     public GameObject SmokeFX;
     public GameObject deathFX;
     public GameObject keepOnDeath;
+    public AudioClip hoverSound;
+    public AudioClip telegraphAttackSound;
+    public AudioClip biteSound;
 
     [Header("Wwise")]
     public float MovementRTPC;
@@ -42,6 +45,9 @@ public class EvilHeadAI : Creature
     public override void Start(){
 		base.Start();
         // HINT: Hover sound start here
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = hoverSound;
+        audioSource.Play();
 	}
 
     public override void OnSpotting()
@@ -73,6 +79,8 @@ public class EvilHeadAI : Creature
         targetLocation = targetOfNPC.transform.position + Vector3.up;
         StartCoroutine(RotateTowardsTarget(targetLocation, 1f));
         // HINT: The head is sending a telegraph attack, this might need a sound effect
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(telegraphAttackSound);
     }
 
 
@@ -113,7 +121,8 @@ public class EvilHeadAI : Creature
     {
         //print(Time.realtimeSinceStartup + ": ChargeTowardsPlayer");
         // HINT: Charge started, a telegrpah sound could be useful here
-
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(telegraphAttackSound);
         Vector3 currentPosition = transform.position;
         Vector3 destination = targetLocation + ((targetLocation) - currentPosition).normalized * 2f;
 
@@ -159,7 +168,8 @@ public class EvilHeadAI : Creature
         SetMovementSpeed(0f);
         //print(Time.realtimeSinceStartup + ": Explode");
         // HiNT: We should stop hover sound at this point
-
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
         GameObject fx = (GameObject)Instantiate(deathFX, transform.position, Quaternion.identity);
         Destroy(fx, 5f);
 
@@ -184,5 +194,7 @@ public class EvilHeadAI : Creature
     public void PlayBiteSound()
     {
         // HINT: Looks like a good place to play the bite sound
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(biteSound);
     }
 }
