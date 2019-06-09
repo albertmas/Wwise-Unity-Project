@@ -242,37 +242,37 @@ public class GameManager : Singleton<GameManager>
         {
             //CurrentZones[0].MusicState.SetValue();
             // HINT: Place to update game music according to region and daylight variables
-            AudioSource music = GameObject.Find("Abiance Sounds").GetComponent<AudioSource>();
+            AudioSource ambiance = GameObject.Find("Ambiance Sounds").GetComponent<AudioSource>();
             if (CurrentZones[0].gameObject.name == "MusicRegion_Cave")
             {
-                music.clip = cave_amb;
-                music.Play();
+                ambiance.clip = cave_amb;
+                ambiance.Play();
             }
             else if (CurrentZones[0].gameObject.name == "MusicRegion_Desert")
             {
                 if (dayTime)
-                    music.clip = desert_day_amb;
+                    ambiance.clip = desert_day_amb;
                 else
-                    music.clip = desert_night_amb;
-                music.Play();
+                    ambiance.clip = desert_night_amb;
+                ambiance.Play();
             }
             else if (CurrentZones[0].gameObject.name == "MusicRegion_Dungeon")
             {
-                music.clip = dungeon_day_amb;
-                music.Play();
+                ambiance.clip = dungeon_day_amb;
+                ambiance.Play();
             }
             else if (CurrentZones[0].gameObject.name == "MusicRegion_Village")
             {
                 if (dayTime)
-                    music.clip = village_day_amb;
+                    ambiance.clip = village_day_amb;
                 else
-                    music.clip = village_night_amb;
-                music.Play();
+                    ambiance.clip = village_night_amb;
+                ambiance.Play();
             }
             else if (CurrentZones[0].gameObject.name == "MusicRegion_Pineforest")
             {
-                music.clip = pineforest_night_amb;
-                music.Play();
+                ambiance.clip = pineforest_night_amb;
+                ambiance.Play();
             }
         }
         else
