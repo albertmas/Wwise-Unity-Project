@@ -54,9 +54,12 @@ public class QuestManager : Singleton<QuestManager>
 
     public bool showQuestBarInfo = false;
 
+    private AudioSource source;
+
     void Awake()
     {
         QuestItems = new List<QuestItemInfo>();
+        source = GetComponent<AudioSource>();
     }
 
     public static void PushQuestBarUpdate()
@@ -97,5 +100,6 @@ public class QuestManager : Singleton<QuestManager>
         float percentage = ((float)mainQuestProgress / (float)AmountOfQuests) * 100f;
         QuestProgressRTPC = percentage;
         // HINT: Progress RPTC changed, do you need to update anything here?
+        source.Play();
     }
 }
