@@ -9,8 +9,18 @@ using System.Collections;
 
 public class AdventuressAnimationEventHandler : MonoBehaviour
 {
-    public AudioClip leftFootStep;
-    public AudioClip rightFootStep;
+    public AudioClip leftFootStep1;
+    public AudioClip leftFootStep2;
+    public AudioClip leftFootStep3;
+    public AudioClip leftFootStep4;
+    public AudioClip leftFootStep5;
+    public AudioClip rightFootStep1;
+    public AudioClip rightFootStep2;
+    public AudioClip rightFootStep3;
+    public AudioClip rightFootStep4;
+    public AudioClip rightFootStep5;
+    AudioClip leftFootStepFinal;
+    AudioClip rightFootStepFinal;
 
     public AudioClip BAS_imp_axe_dirt;
     public AudioClip BAS_imp_dagger_dirt;
@@ -92,10 +102,35 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     { 
                         // HINT: Play left footstep sound
                         
+                        switch(Random.Range(1, 6)){
+
+                            case 1:
+                                leftFootStepFinal = leftFootStep1;
+                                break;
+
+                            case 2:
+                                leftFootStepFinal = leftFootStep2;
+                                break;
+
+                            case 3:
+                                leftFootStepFinal = leftFootStep3;
+                                break;
+
+                            case 4:
+                                leftFootStepFinal = leftFootStep4;
+                                break;
+
+                            case 5:
+                                leftFootStepFinal = leftFootStep5;
+                                break;
+
+                        }
+
+
                         particlePosition = foot_L.transform.position;
                         FootstepParticles(particlePosition);
                         AudioSource audioSource = GetComponent<AudioSource>();
-                        audioSource.PlayOneShot(leftFootStep, 0.7F);
+                        audioSource.PlayOneShot(leftFootStepFinal, 0.7F);
                     }
                 }
                 else
@@ -103,10 +138,36 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     //if (foot_R.FootstepSound.Validate())
                     {
                         // HINT: Play right footstep sound
+
+                        switch (Random.Range(1, 6))
+                        {
+
+                            case 1:
+                                rightFootStepFinal = rightFootStep1;
+                                break;
+
+                            case 2:
+                                rightFootStepFinal = rightFootStep2;
+                                break;
+
+                            case 3:
+                                rightFootStepFinal = rightFootStep3;
+                                break;
+
+                            case 4:
+                                rightFootStepFinal = rightFootStep4;
+                                break;
+
+                            case 5:
+                                rightFootStepFinal = rightFootStep5;
+                                break;
+
+                        }
+
                         particlePosition = foot_R.transform.position;
                         FootstepParticles(particlePosition);
                         AudioSource audioSource = GetComponent<AudioSource>();
-                        audioSource.PlayOneShot(rightFootStep, 0.7F);
+                        audioSource.PlayOneShot(rightFootStepFinal, 0.7F);
                     }
                 }
             }
