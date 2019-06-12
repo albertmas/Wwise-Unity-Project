@@ -20,6 +20,13 @@ public class Menu : MonoBehaviour
     public AnimatedObjectActiveHandler QuestBox;
     public bool GetMouseWithP = false;
 
+    [Header("AudioSource")]
+    public AudioSource source;
+
+    [Header("AudioClips")]
+    public AudioClip open;
+    public AudioClip close;
+
     public MenuEvent OnMenuDown;
 
     private bool menuOpen = false;
@@ -50,6 +57,9 @@ public class Menu : MonoBehaviour
             if (menuOpen)
             {
                 // HINT: Play menu open sound here
+                source.clip = open;
+                source.Play();
+
                 GameManager.Instance.gameSpeedHandler.PauseGameSpeed(gameObject.GetInstanceID());
                 GameManager.Instance.BlurCam();
 
@@ -62,6 +72,9 @@ public class Menu : MonoBehaviour
             else
             {
                 // HINT: Play menu close sound here
+                source.clip = close;
+                source.Play();
+
                 GameManager.Instance.gameSpeedHandler.UnPauseGameSpeed(gameObject.GetInstanceID());
                 GameManager.Instance.UnBlurCam();
                 QuestBox.DisableObject(0.25f);
