@@ -55,6 +55,10 @@ public class Inventory : MonoBehaviour
 
     public static bool InventoryIsOut = false;
 
+    AudioSource source;
+
+    public AudioClip openClip, closeClip, switchClip, selectClip;
+
     #region private variables
     private bool hasShown = false;
     private int SelectIncrementor_Row1 = 0;
@@ -82,6 +86,8 @@ public class Inventory : MonoBehaviour
     void OnEnable()
     {
         canvasGroup.interactable = false;
+
+        source = transform.GetComponent<AudioSource>();
 
         ScaleSizes = new List<float>();
         float scaleMultiplier = 0.1f;
@@ -616,11 +622,17 @@ public class Inventory : MonoBehaviour
         }
 
         MarkerVisibility(SelectedRow);
+
+        source.clip = switchClip;
+        source.Play();
     }
     void OnArrowDown()
     {
         SelectedRow = RowShift + ((SelectedRow += 1) % RowAmount);
         MarkerVisibility(SelectedRow);
+
+        source.clip = switchClip;
+        source.Play();
     }
 
 
@@ -707,6 +719,10 @@ public class Inventory : MonoBehaviour
         {
             canvasGroup.interactable = true;
             // HINT: You might want to play the inventory opened sound here
+
+            source.clip = openClip;
+            source.Play();
+
             InventoryIsOut = true;
             if (EventSystem.current != null)
             {
@@ -729,6 +745,10 @@ public class Inventory : MonoBehaviour
         {
             canvasGroup.interactable = false;
             // HINT: You might want to play the inventory closed sound here
+
+            source.clip = closeClip;
+            source.Play();
+
             InventoryIsOut = false;
             GameManager.Instance.gameSpeedHandler.UnPauseGameSpeed(gameObject.GetInstanceID());
 
@@ -757,6 +777,9 @@ public class Inventory : MonoBehaviour
         {
             print("Inventory: No Inventory Items to the right");
         }
+
+        source.clip = switchClip;
+        source.Play();
     }
     void ArrowPressLeft()
     {
@@ -768,6 +791,9 @@ public class Inventory : MonoBehaviour
         {
             print("Inventory: No Inventory Items to the left");
         }
+
+        source.clip = switchClip;
+        source.Play();
     }
 
     void Update()
@@ -785,6 +811,8 @@ public class Inventory : MonoBehaviour
     public void ButtonIncrement(int layer)
     {
         // HINT: You may want to play the inventory select sound here
+        source.clip = switchClip;
+        source.Play();
 
         if (Panel.activeInHierarchy && hasShown)
         {
@@ -809,6 +837,9 @@ public class Inventory : MonoBehaviour
     public void InversedIncrement(int layer)
     {
         // HINT: You may want to play the inventory select sound here
+        source.clip = switchClip;
+        source.Play();
+
         if (Panel.activeInHierarchy && hasShown)
         {
             if (layer == 0)
