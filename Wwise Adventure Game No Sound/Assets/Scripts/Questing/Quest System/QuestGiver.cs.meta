@@ -3,8 +3,12 @@ guid: 752c8ce28e7104c2eb4b0abef235cdc0
 timeCreated: 1512222892
 licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - QuestMarkAnimator: {instanceID: 0}
+  - startQuest: {fileID: 8300000, guid: 73578676cd706ce46a91081a542211fa, type: 3}
+  - endQuest: {fileID: 8300000, guid: 107c82af3f8b85f49a781afe91e46b08, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

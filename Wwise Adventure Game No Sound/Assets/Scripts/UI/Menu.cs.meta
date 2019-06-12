@@ -3,8 +3,14 @@ guid: 5310e102d21ce4429b7356f2bedcc79b
 timeCreated: 1504608668
 licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ControlsBox: {instanceID: 0}
+  - QuestBox: {instanceID: 0}
+  - source: {instanceID: 0}
+  - open: {fileID: 8300000, guid: ab29e91737827124fb711f29dfcd51b0, type: 3}
+  - close: {fileID: 8300000, guid: 459fef1af23645147857e83cb23afe27, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

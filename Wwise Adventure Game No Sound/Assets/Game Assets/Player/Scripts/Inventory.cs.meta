@@ -3,8 +3,24 @@ guid: 2cf167f79f4164b8cae82d283d3e4f35
 timeCreated: 1474469109
 licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ThisCanvas: {instanceID: 0}
+  - canvasGroup: {instanceID: 0}
+  - UIhelp: {instanceID: 0}
+  - GRow1: {instanceID: 0}
+  - GRow2: {instanceID: 0}
+  - GRow3: {instanceID: 0}
+  - Panel: {instanceID: 0}
+  - StatusObject: {instanceID: 0}
+  - NotSelectedMaterial: {instanceID: 0}
+  - NotPickedUpMaterial: {instanceID: 0}
+  - SelectedGameobject: {instanceID: 0}
+  - openClip: {fileID: 8300000, guid: d3ba7f28c25bc344dbab715a85837036, type: 3}
+  - closeClip: {fileID: 8300000, guid: 01c324b6acc88594fa4cfd8cead3a08f, type: 3}
+  - switchClip: {fileID: 8300000, guid: fabfbdd0ca9597042aa8efc18a1415b2, type: 3}
+  - selectClip: {fileID: 8300000, guid: 4a81072c33914a94bb444106a7d9b7db, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
